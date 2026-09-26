@@ -1,9 +1,9 @@
 terraform {
   backend "s3" {
-    bucket         = "mybucket-terraform-state-file"
+    bucket         = "mybucket-terraform-state-file-new"
     key            = "env/dev/terraform.tfstate"
     region         = var.aws_region
-    dynamodb_table = "terraform-lock"
+    dynamodb_table = "terraform-lock-new"
     encrypt        = true
   }
 }
@@ -24,12 +24,12 @@ resource "aws_instance" "my_instance" {
     encrypted = true
   }
   tags = {
-    Name : "web-Server"
+    Name : "web-Server-new"
   }
 }
 
 resource "aws_security_group" "web_sg" {
-  name        = "nginx-sg"
+  name        = "nginx-sg-new"
   description = "Allow HTTP and restricted SSH"
 
   # 🌐 HTTP (public website ke liye open)

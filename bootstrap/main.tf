@@ -1,10 +1,10 @@
 provider "aws" {
-  region = "ap-south-1"
+  region = "eu-west-1"
 }
 resource "aws_s3_bucket" "tf_state" {
-  bucket = "mybucket-terraform-state-file"
+  bucket = "mybucket-terraform-state-file-new"
   tags = {
-    Name = "Terraform State Bucket"
+    Name = "mybucket-terraform-state-file-new"
   }
 }
 resource "aws_s3_bucket_versioning" "versioning" {
@@ -15,8 +15,8 @@ resource "aws_s3_bucket_versioning" "versioning" {
   }
 }
 
-resource "aws_dynamodb_table" "tf_lock" {
-  name         = "terraform-lock"
+resource "aws_dynamodb_table" "tf_lock_new" {
+  name         = "terraform-lock-new"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
 
